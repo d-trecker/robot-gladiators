@@ -9,22 +9,22 @@ var enemyNames = ["Sans", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-for (let i = 0; i < enemyNames.length; i++) {
-    console.log(enemyNames[i]);
-    console.log(i);
-    console.log(enemyNames[i] + " is at " + i + " index");
-    
-}
+console.log(enemyNames);
+console.log(enemyNames.length);
+console.log(enemyNames[0]);
+
+
 
 var fight = function(enemyName) {
-    window.alert("Welcome to Robot Gladiators!");
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle?");
     console.log (promptFight);
     //if player choses to fight
+    while(enemyHealth > 0) {
+
     if (promptFight === "fight" || promptFight === "FIGHT") {
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + " attacked " + enemyName + ". " +enemyName + "now has" + enemyHealth + " remaining."
+            playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " remaining."
         );
     if (enemyHealth <= 0) {
         window.alert(enemyName + " has died!");
@@ -57,6 +57,7 @@ var fight = function(enemyName) {
 
 
     }
+    }
 }
 
 //Game Stats
@@ -69,5 +70,8 @@ var fight = function(enemyName) {
 // fight();
 
 for (let i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+    debugger;
+    var pickedEnemyName =enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
 }
