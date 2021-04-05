@@ -34,6 +34,12 @@ var fightOrSkip = function () {
 };
 
 var fight = function (enemy) {
+  //keep track of who goes first
+  var isPlayerTurn = true;
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
+
   //if player choses to fight
   while (playerInfo.health > 0 && enemy.health > 0) {
     //ask the player if they'd liek to fight or skip using fight or skip function
@@ -86,6 +92,7 @@ var fight = function (enemy) {
         playerInfo.name + " still has " + playerInfo.health + " health left."
       );
     }
+    isPlayerTurn = !isPlayerTurn;
   }
 };
 
